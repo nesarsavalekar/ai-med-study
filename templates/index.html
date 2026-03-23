@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Med Study</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f7fa;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            margin-top: 5px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .output-box {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>AI Medical Study Assistant 🧠</h1>
+
+    <form method="POST">
+        
+        <label>Page Number:</label>
+        <input type="number" name="page" required>
+
+        <label>Mode:</label>
+        <select name="mode">
+            <option value="doubt">Ask Doubt</option>
+            <option value="mcq">Normal MCQs (15)</option>
+            <option value="hardcore">Hardcore MCQs (10 🔥)</option>
+        </select>
+
+        <label>Question (only for doubt mode):</label>
+        <input type="text" name="question">
+
+        <input type="hidden" name="previous_output" value="{{ output }}">
+
+        <button type="submit" name="action" value="generate">Generate</button>
+        <button type="submit" name="action" value="more">Next Set</button>
+    </form>
+
+    <div class="output-box">
+        <h2>Output:</h2>
+        {{ output }}
+    </div>
+
+</body>
+</html>
